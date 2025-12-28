@@ -5,36 +5,77 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Account</title>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <style>
+    /* Force Identity modal to be on top and visible */
+    .netlify-identity-widget,
+    .netlify-identity-widget *{
+      z-index: 2147483647 !important;
+    }
+    .netlify-identity-widget{
+      display: block !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+  </style>
 </head>
 <body style="font-family:system-ui; padding:16px;">
   <h3>Account</h3>
   <p id="msg">Loading…</p>
-  <button id="open" type="button" style="display:none;">Open sign-in</button>
+  <button id="continue" type="button" style="display:none;">Continue</button>
 
   <script>
     const msg = document.getElementById("msg");
-    const btn = document.getElementById("open");
+    const btn = document.getElementById("continue");
     const hash = window.location.hash || "";
 
-    function showButton(text) {
-      msg.textContent = text;
-      btn.style.display = "inline-block";
-      btn.onclick = () => window.netlifyIdentity && window.netlifyIdentity.open();
+    function tokenTypeFromHash(h) {
+      if (h.includes("invite_token=")) return "invite";
+      if (h.includes("recovery_token=")) return "recovery";
+      if (h.includes("confirmation_token=")) return "confirmation";
+      if (h.includes("email_change_token=")) return "email_change";
+      return "";
+    }
+
+    function openForToken() {
+      const type = tokenTypeFromHash(hash);
+      if (!type) {
+        msg.textContent = "This page is used for invite/reset links. If you meant to sign in, click Continue.";
+        btn.style.display = "inline-block";
+        btn.onclick = () => window.netlifyIdentity && window.netlifyIdentity.open("login");
+        return;
+      }
+
+      // For invites/confirmations, force signup tab
+      const mode = (type === "invite" || type === "confirmation" || type === "email_change")
+        ? "signup"
+        : "login";
+
+      msg.textContent = "Opening secure account flow…";
+
+      // Attempt automatic open
+      window.netlifyIdentity.open(mode);
+
+      // Fallback button if modal doesn’t appear (user gesture always works)
+      setTimeout(() => {
+        msg.textContent = "If nothing opened, click Continue.";
+        btn.style.display = "inline-block";
+        btn.onclick = () => window.netlifyIdentity && window.netlifyIdentity.open(mode);
+      }, 800);
     }
 
     if (!window.netlifyIdentity) {
-      showButton("Netlify Identity failed to load.");
-    } else {
-      window.netlifyIdentity.on("init", (user) => {
-        if (/(invite|recovery|confirmation|email_change)_token=/.test(hash)) {
-          msg.textContent = "Opening secure account flow…";
-          window.netlifyIdentity.open();
-        } else {
-          showButton("This page is used for invite/reset links. If you meant to sign in, click below.");
-        }
-      });
-      window.netlifyIdentity.init();
+      msg.textContent = "Netlify Identity widget failed to load (check blockers/extensions).";
+      return;
     }
+
+    window.netlifyIdentity.on("init", () => openForToken());
+    window.netlifyIdentity.on("error", (err) => {
+      msg.textContent = "Identity error: " + (err && err.message ? err.message : String(err));
+      btn.style.display = "inline-block";
+      btn.onclick = () => window.netlifyIdentity && window.netlifyIdentity.open("login");
+    });
+
+    window.netlifyIdentity.init();
   </script>
 </body>
 </html>
