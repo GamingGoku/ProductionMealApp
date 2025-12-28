@@ -7,13 +7,30 @@
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body style="font-family:system-ui; padding:16px;">
-  <p>Loading…</p>
+  <h3>Account</h3>
+  <p id="msg">Loading…</p>
+  <button id="open" type="button" style="display:none;">Open sign-in</button>
+
   <script>
-    if (window.netlifyIdentity) {
+    const msg = document.getElementById("msg");
+    const btn = document.getElementById("open");
+    const hash = window.location.hash || "";
+
+    function showButton(text) {
+      msg.textContent = text;
+      btn.style.display = "inline-block";
+      btn.onclick = () => window.netlifyIdentity && window.netlifyIdentity.open();
+    }
+
+    if (!window.netlifyIdentity) {
+      showButton("Netlify Identity failed to load.");
+    } else {
       window.netlifyIdentity.on("init", (user) => {
-        const h = window.location.hash || "";
-        if (!user && /(recovery|invite|confirmation|email_change)_token=/.test(h)) {
+        if (/(invite|recovery|confirmation|email_change)_token=/.test(hash)) {
+          msg.textContent = "Opening secure account flow…";
           window.netlifyIdentity.open();
+        } else {
+          showButton("This page is used for invite/reset links. If you meant to sign in, click below.");
         }
       });
       window.netlifyIdentity.init();
