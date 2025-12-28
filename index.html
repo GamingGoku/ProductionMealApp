@@ -186,20 +186,32 @@ body.shop-mode [data-screen="recipes"]{display:none !important;}
 
     
 
-    /* --- Recipe import dialog --- */
+    
+    /* --- Netlify Identity widget styling (reduce transparency) --- */
+    .netlify-identity-overlay{
+      background: rgba(0,0,0,.85) !important;
+      backdrop-filter: blur(6px);
+    }
+    .netlify-identity-modal{
+      background: rgba(16,22,29,.98) !important;
+      border: 1px solid #223041 !important;
+      box-shadow: 0 20px 60px rgba(0,0,0,.7) !important;
+    }
+    
+/* --- Recipe import dialog --- */
     dialog#import-dialog,
     dialog#admin-dialog{
       width:min(720px, calc(100vw - 24px));
       border:1px solid #223041;
       border-radius:16px;
       padding:0;
-      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      background:rgba(16,22,29,.98);
       color:var(--ink);
       box-shadow:0 20px 60px rgba(0,0,0,.6);
     }
     dialog#import-dialog::backdrop,
     dialog#admin-dialog::backdrop{
-      background:rgba(0,0,0,.6);
+      background:rgba(0,0,0,.85);
     }
     .import-form{
       padding:16px;

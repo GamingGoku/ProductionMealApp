@@ -1088,7 +1088,15 @@ const importPublishBtn = document.getElementById('btn-import-publish');
   // Keep UI in sync with Identity state
   if(window.netlifyIdentity){
     try{
-      window.netlifyIdentity.on('init', refreshAdminState);
+      window.netlifyIdentity.on('init', async (user)=>{
+      await refreshAdminState();
+      // If arriving from an invite/confirmation/recovery link, force the widget open.
+      const h = String(window.location.hash || '');
+      const hasToken = /#(invite|confirmation|recovery)_token=/.test(h);
+      if(!user && hasToken){
+        try{ window.netlifyIdentity.open(); }catch{}
+      }
+    });
       window.netlifyIdentity.on('login', async (user)=>{
         try{ window.netlifyIdentity.close(); }catch{}
         await refreshAdminState();
