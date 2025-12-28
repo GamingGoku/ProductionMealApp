@@ -187,7 +187,8 @@ body.shop-mode [data-screen="recipes"]{display:none !important;}
     
 
     /* --- Recipe import dialog --- */
-    dialog#import-dialog{
+    dialog#import-dialog,
+    dialog#admin-dialog{
       width:min(720px, calc(100vw - 24px));
       border:1px solid #223041;
       border-radius:16px;
@@ -196,7 +197,8 @@ body.shop-mode [data-screen="recipes"]{display:none !important;}
       color:var(--ink);
       box-shadow:0 20px 60px rgba(0,0,0,.6);
     }
-    dialog#import-dialog::backdrop{
+    dialog#import-dialog::backdrop,
+    dialog#admin-dialog::backdrop{
       background:rgba(0,0,0,.6);
     }
     .import-form{
@@ -230,6 +232,7 @@ body.shop-mode [data-screen="recipes"]{display:none !important;}
         <button class="tab active" data-nav="plan">Plan</button>
         <button class="tab" data-nav="shopping">Shopping</button>
         <button class="tab" data-nav="recipes">Recipes</button>
+        <button class="tab" id="btn-admin" type="button">Admin</button>
         <!-- <button class="tab" data-nav="data">Data</button> -->
       </nav>
     </div>
@@ -335,6 +338,27 @@ body.shop-mode [data-screen="recipes"]{display:none !important;}
 
         <div class="toolbar">
           <button class="btn secondary" id="btn-import-add" type="button">Add to rotation</button>
+          <button class="btn" id="btn-import-publish" type="button" hidden>Publish to library</button>
+          <button class="btn ghost" value="cancel">Close</button>
+        </div>
+      </form>
+    </dialog>
+
+
+    <dialog id="admin-dialog" class="import-dialog">
+      <form method="dialog" class="import-form">
+        <h3 style="margin:0 0 8px">Admin</h3>
+        <div class="hint" style="margin-bottom:12px">
+          Sign in with Netlify Identity. Only admins can publish to the central recipe library and export it.
+        </div>
+
+        <div id="admin-status" class="hint" style="min-height:18px"></div>
+
+        <div class="toolbar">
+          <button class="btn" id="btn-admin-login" type="button">Sign in</button>
+          <button class="btn ghost" id="btn-admin-logout" type="button" hidden>Sign out</button>
+          <span style="flex:1"></span>
+          <button class="btn secondary" id="btn-admin-export" type="button" hidden>Export library</button>
           <button class="btn ghost" value="cancel">Close</button>
         </div>
       </form>
@@ -344,6 +368,7 @@ body.shop-mode [data-screen="recipes"]{display:none !important;}
 
   <footer>Installable PWA • Offline ready • No tracking</footer>
 
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script src="app.js" defer></script>
 </body>
 </html>

@@ -77,6 +77,41 @@ const isShopMode = (()=> {
   }catch{ return window.name==='ShopMode'; }
 })();
 
+// --- Admin (Netlify Identity) helpers ---
+function safeAtobUrl(b64url){
+  // Convert base64url -> base64 for atob
+  let s = String(b64url||'').replace(/-/g,'+').replace(/_/g,'/');
+  while(s.length % 4) s += '=';
+  return atob(s);
+}
+function decodeJwtPayload(token){
+  try{
+    const parts = String(token||'').split('.');
+    if(parts.length < 2) return null;
+    const json = safeAtobUrl(parts[1]);
+    return JSON.parse(json);
+  }catch{ return null; }
+}
+function rolesFromJwt(token){
+  const p = decodeJwtPayload(token);
+  const roles = p?.app_metadata?.roles ?? p?.app_metadata?.authorization?.roles ?? [];
+  return Array.isArray(roles) ? roles : [];
+}
+function isAdminJwt(token){
+  return rolesFromJwt(token).includes('admin');
+}
+async function getIdentityJwt(){
+  const ni = window.netlifyIdentity;
+  const u = ni?.currentUser?.();
+  if(!u) return null;
+  try{
+    return await u.jwt();
+  }catch{
+    // older widget variants sometimes expose token on u.token
+    return u?.token?.access_token || null;
+  }
+}
+
 // storage-backed state
 let checked=new Set((loadJSON(CHECKED_KEY, [])||[]).map(normalizeKey));
 let extras=[];
@@ -930,8 +965,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
     }
   });
 
-  document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click', ()=>{
-    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.tab[data-nav]').forEach(t=>t.addEventListener('click', ()=>{
+    document.querySelectorAll('.tab[data-nav]').forEach(x=>x.classList.remove('active'));
     t.classList.add('active'); show(t.dataset.nav);
     if(t.dataset.nav==='shopping') buildShoppingList();
     if(t.dataset.nav==='plan') renderPlan();
@@ -947,6 +982,124 @@ document.addEventListener('DOMContentLoaded', ()=>{
   const importFetchBtn = document.getElementById('btn-import-fetch');
   const importAddBtn = document.getElementById('btn-import-add');
   const importStatus = document.getElementById('import-status');
+const importPublishBtn = document.getElementById('btn-import-publish');
+
+  // --- Admin dialog wiring (Netlify Identity) ---
+  const adminBtn = document.getElementById('btn-admin');
+  const adminDlg = document.getElementById('admin-dialog');
+  const adminStatus = document.getElementById('admin-status');
+  const adminLoginBtn = document.getElementById('btn-admin-login');
+  const adminLogoutBtn = document.getElementById('btn-admin-logout');
+  const adminExportBtn = document.getElementById('btn-admin-export');
+
+  let adminState = { user: null, jwt: null, isAdmin: false };
+
+  const setAdminUi = () => {
+    const loggedIn = !!adminState.user;
+    const isAdmin = !!adminState.isAdmin;
+
+    if(adminStatus){
+      if(!loggedIn) adminStatus.textContent = 'Not signed in.';
+      else adminStatus.textContent = `Signed in as ${adminState.user?.email || 'user'}${isAdmin ? ' (admin)' : ''}.`;
+    }
+    if(adminLoginBtn) adminLoginBtn.hidden = loggedIn;
+    if(adminLogoutBtn) adminLogoutBtn.hidden = !loggedIn;
+    if(adminExportBtn) adminExportBtn.hidden = !isAdmin;
+
+    // Only admins can publish to the shared library
+    if(importPublishBtn) importPublishBtn.hidden = !isAdmin;
+  };
+
+  const refreshAdminState = async () => {
+    const ni = window.netlifyIdentity;
+    const u = ni?.currentUser?.() || null;
+    adminState.user = u;
+    adminState.jwt = null;
+    adminState.isAdmin = false;
+
+    if(u){
+      const jwt = await getIdentityJwt();
+      adminState.jwt = jwt;
+      adminState.isAdmin = jwt ? isAdminJwt(jwt) : false;
+    }
+    setAdminUi();
+  };
+
+  const requireAdminJwt = async () => {
+    await refreshAdminState();
+    if(!adminState.user) throw new Error('Please sign in as admin first.');
+    if(!adminState.isAdmin) throw new Error('Your account is not an admin.');
+    if(!adminState.jwt) throw new Error('Could not obtain an Identity token.');
+    return adminState.jwt;
+  };
+
+  const downloadTextFile = (filename, text) => {
+    const blob = new Blob([text], { type: 'application/json;charset=utf-8' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); }, 0);
+  };
+
+  if(adminBtn && adminDlg && typeof adminDlg.showModal === 'function'){
+    adminBtn.addEventListener('click', async ()=>{
+      await refreshAdminState();
+      adminDlg.showModal();
+    });
+  }
+
+  if(adminLoginBtn){
+    adminLoginBtn.addEventListener('click', ()=>{
+      if(window.netlifyIdentity?.open) window.netlifyIdentity.open('login');
+      else alert('Netlify Identity not available.');
+    });
+  }
+
+  if(adminLogoutBtn){
+    adminLogoutBtn.addEventListener('click', ()=>{
+      window.netlifyIdentity?.logout?.();
+    });
+  }
+
+  if(adminExportBtn){
+    adminExportBtn.addEventListener('click', async ()=>{
+      try{
+        if(adminStatus) adminStatus.textContent = 'Exporting library…';
+        const jwt = await requireAdminJwt();
+        const res = await fetch('/.netlify/functions/export-recipes', {
+          method: 'GET',
+          headers: { 'Authorization': 'Bearer ' + jwt }
+        });
+        if(!res.ok){
+          const msg = await res.text().catch(()=> '');
+          throw new Error(`Export failed (${res.status}). ${msg}`.trim());
+        }
+        const text = await res.text();
+        downloadTextFile('recipe-library-export.json', text);
+        if(adminStatus) adminStatus.textContent = 'Export complete.';
+      }catch(e){
+        if(adminStatus) adminStatus.textContent = String(e?.message || e);
+      }
+    });
+  }
+
+  // Keep UI in sync with Identity state
+  if(window.netlifyIdentity){
+    try{
+      window.netlifyIdentity.on('init', refreshAdminState);
+      window.netlifyIdentity.on('login', async (user)=>{
+        try{ window.netlifyIdentity.close(); }catch{}
+        await refreshAdminState();
+      });
+      window.netlifyIdentity.on('logout', refreshAdminState);
+      window.netlifyIdentity.init();
+    }catch{
+      // ignore
+    }
+  }
+
 
   const resetImportDialog = () => {
     if(importUrl) importUrl.value = '';
@@ -996,6 +1149,54 @@ document.addEventListener('DOMContentLoaded', ()=>{
   }
 
 
+  if(importPublishBtn){
+    importPublishBtn.addEventListener('click', async ()=>{
+      try{
+        if(importStatus) importStatus.textContent = 'Publishing to library…';
+
+        const jwt = await requireAdminJwt();
+
+        const title = String(importTitle?.value||'').trim();
+        const lines = String(importIngredients?.value||'')
+          .split(String.fromCharCode(10))
+          .map(x=>x.trim())
+          .filter(Boolean);
+
+        if(!title) throw new Error('Meal name is required.');
+        if(!lines.length) throw new Error('Add at least one ingredient line.');
+
+        const sourceUrl = String(importUrl?.value||'').trim();
+
+        const payload = {
+          name: title,
+          ingredients: lines,
+          method: [],
+          sourceUrl
+        };
+
+        const res = await fetch('/.netlify/functions/publish-recipe', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json; charset=utf-8',
+            'Authorization': 'Bearer ' + jwt
+          },
+          body: JSON.stringify(payload)
+        });
+
+        if(!res.ok){
+          const msg = await res.text().catch(()=> '');
+          throw new Error(`Publish failed (${res.status}). ${msg}`.trim());
+        }
+
+        await res.json().catch(()=>null);
+        if(importStatus) importStatus.textContent = 'Published to library.';
+      }catch(e){
+        if(importStatus) importStatus.textContent = String(e?.message || e);
+      }
+    });
+  }
+
+
   updateLockUI();
 });
 
@@ -1029,7 +1230,7 @@ function runTests(){
   if(isShopMode){
     document.body.classList.add('shop-mode');
     // Force shopping view
-    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+    document.querySelectorAll('.tab[data-nav]').forEach(x=>x.classList.remove('active'));
     const t=document.querySelector('[data-nav="shopping"]');
     if(t) t.classList.add('active');
     show('shopping');
