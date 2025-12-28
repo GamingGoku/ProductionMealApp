@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meal Planner – Modern MVP</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2dd4bf">
+  <style>
+    :root{ --bg:#0b0f14; --card:#10161d; --muted:#8b98a5; --ink:#e7eef6; --accent:#2dd4bf; --accent-2:#7c3aed; --border:#1f2933; }
+    *{box-sizing:border-box} html,body{height:100%}
+    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Inter,Ubuntu; background:radial-gradient(1200px 700px at 20% -10%, #121924 0%, #0b0f14 60%, #090d12 100%); color:var(--ink)}
+    .container{max-width:1100px;margin:0 auto;padding:20px}
+    header{position:sticky;top:0;z-index:5;background:rgba(10,14,19,.75);backdrop-filter:saturate(1.1) blur(8px);border-bottom:1px solid #121a22}
+    .bar{display:flex;align-items:center;gap:14px;padding:16px 20px}
+    .brand{font-weight:800;letter-spacing:.2px}.brand small{color:var(--muted);font-weight:500}
+    nav{margin-left:auto;display:flex;gap:8px}
+    .tab{appearance:none;border:1px solid #1a222c;background:#0f141c;color:var(--ink);padding:10px 14px;border-radius:12px;cursor:pointer;font-weight:700}
+    .tab.active{background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));border-color:#2a3645}
+    main{padding:22px 20px}
+    .grid-30{display:grid;grid-template-columns:repeat(7,1fr);gap:10px}
+    @media (max-width:900px){.grid-30{grid-template-columns:repeat(2,1fr)}}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));border:1px solid #1b2430;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+    .card h2{margin:0;padding:14px 16px;font-size:15px;color:#c9d4e2;border-bottom:1px solid #1a2230}
+    .card .body{padding:14px 16px;max-height:100vh;overflow:auto}
+    .day{border:1px dashed #223041;border-radius:12px;padding:10px}
+    .kicker{color:var(--muted);font-size:12px;margin-bottom:4px}.meal{font-weight:800}.muted{color:var(--muted)}
+    .toolbar{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{background:var(--accent);color:#071d15;border:0;padding:10px 14px;border-radius:12px;font-weight:800;cursor:pointer;box-shadow:0 10px 30px rgba(45,212,191,.2)}
+    .btn.secondary{background:var(--accent-2);color:#0a031a;box-shadow:0 10px 30px rgba(124,58,237,.25)}
+    .btn.ghost{background:transparent;border:1px solid #223041;color:var(--ink)}
+    .btn[disabled]{opacity:.5;cursor:not-allowed;filter:grayscale(40%)}
+    .stack{display:grid;gap:12px}.row{display:flex;gap:10px;flex-wrap:wrap}
+    input[type="file"],textarea,input[type="text"],select{width:100%;background:#0d141c;border:1px solid #1b2430;border-radius:12px;color:var(--ink);padding:10px}
+    .pill{display:inline-block;padding:4px 10px;border-radius:999px;border:1px solid #243244;background:rgba(255,255,255,.05);font-size:12px;color:#bcd}
+    .banner{background:#0f1a23;border:1px solid #223041;color:#cde;padding:10px 12px;border-radius:10px;font-size:13px}
+    .columns{display:block}.columns h4{break-inside:avoid;margin:14px 0 8px;color:#b8c6d6}
+
+    /* --- Shopping list category ribbons (collapsible) --- */
+    details.catgroup{
+      border:1px solid #1b2430;
+      border-radius:12px;
+      background:rgba(255,255,255,.02);
+      margin:10px 0;
+      overflow:hidden;
+    }
+    details.catgroup > summary.cat-ribbon{
+      list-style:none;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding:10px 12px;
+      background:rgba(255,255,255,.03);
+      color:#b8c6d6;
+      user-select:none;
+    }
+    details.catgroup > summary.cat-ribbon::-webkit-details-marker{ display:none; }
+    details.catgroup[open] > summary.cat-ribbon{
+      border-bottom:1px solid #1b2430;
+    }
+    .cat-meta{
+      font-size:12px;
+      color:#bcd;
+      background:rgba(255,255,255,.05);
+      padding:4px 10px;
+      border-radius:999px;
+      white-space:nowrap;
+    }
+    .catitems{
+      padding:8px 12px 12px;
+    }
+    .item{display:flex;align-items:center;gap:8px;margin:6px 0;break-inside:avoid}.item input{accent-color:var(--accent)}
+    .item label{flex:1;min-width:160px}
+    .item .qty{width:72px;max-width:96px;background:transparent;border:1px solid #223041;border-radius:10px;padding:6px 8px;color:var(--ink)}
+    .item .cat{min-width:160px;background:transparent;border:1px solid #223041;border-radius:10px;padding:6px 8px;color:var(--ink)}
+    .item.checked label{color:var(--muted);text-decoration:line-through}
+    .hint{color:var(--muted);font-size:12px} footer{color:var(--muted);text-align:center;padding:28px 10px}
+    .extra-remove{margin-left:8px;border:1px solid #223041;background:transparent;color:#e7eef6;border-radius:8px;padding:2px 6px;cursor:pointer}
+
+
+/* --- Recipes --- */
+details.recipe{
+  border:1px solid #1b2430;
+  border-radius:14px;
+  padding:10px 12px;
+  background:rgba(255,255,255,.03);
+  margin-bottom:10px;
+}
+details.recipe summary{
+  cursor:pointer;
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+details.recipe summary::-webkit-details-marker{display:none;}
+.recipe-meta{color:var(--muted);font-size:12px}
+.recipe-title{font-weight:900}
+.recipe-body{margin-top:10px;display:grid;gap:10px}
+.recipe-body h4{margin:6px 0;color:#b8c6d6}
+.recipe-body ul,.recipe-body ol{margin:0 0 0 18px;padding:0}
+.recipe-body li{margin:4px 0}
+  
+    body.shop-mode main {
+      padding: 0;
+    }
+
+    
+    body.shop-mode #extras-row,
+    body.shop-mode #extras-hint{
+      display:none !important;
+    }
+
+
+    body.shop-mode [data-screen="shopping"] {
+      margin: 0;
+      padding: 0;
+    }
+
+    
+    body.shop-mode header,
+    body.shop-mode footer,
+    body.shop-mode [data-screen="plan"]{
+      display:none !important;
+    }
+    body.shop-mode main.container{
+      max-width:none;
+      margin:0;
+      padding:0;
+    }
+
+
+body.shop-mode{
+  height:100vh;
+  overflow:hidden;
+}
+body.shop-mode section[data-screen="shopping"] .card{
+  height:100vh;
+  margin:0;
+  border-radius:0;
+  border:0;
+  box-shadow:none;
+  display:flex;
+  flex-direction:column;
+}
+body.shop-mode section[data-screen="shopping"] .card .body{
+  flex:1 1 auto;
+  max-height:none !important;
+  overflow:hidden; /* avoid nested scrollbars */
+  padding:0;
+  display:flex;
+  flex-direction:column;
+}
+body.shop-mode section[data-screen="shopping"] .toolbar{
+  flex:0 0 auto;
+  margin:0;
+  padding:12px 16px;
+  border-top:1px solid #1a2230;
+  background:rgba(10,14,19,.75);
+  backdrop-filter:saturate(1.1) blur(8px);
+}
+body.shop-mode #btn-shop-mode{display:none !important;}
+body.shop-mode [data-screen="recipes"]{display:none !important;}
+    body.shop-mode [data-screen="shopping"]{
+      display:block !important;
+    }
+
+
+    body.shop-mode #shopping{
+  flex:1 1 auto;
+  height:auto !important;
+  max-height:none !important;
+  overflow-y:auto !important;
+  overflow-x:hidden !important;
+  padding:16px;
+}
+
+  
+    /* Ensure shopping list scrolls vertically, never "newspaper columns" */
+    #shopping{overflow-x:hidden}
+
+
+
+
+    
+
+    /* --- Recipe import dialog --- */
+    dialog#import-dialog{
+      width:min(720px, calc(100vw - 24px));
+      border:1px solid #223041;
+      border-radius:16px;
+      padding:0;
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      color:var(--ink);
+      box-shadow:0 20px 60px rgba(0,0,0,.6);
+    }
+    dialog#import-dialog::backdrop{
+      background:rgba(0,0,0,.6);
+    }
+    .import-form{
+      padding:16px;
+      display:grid;
+      gap:12px;
+    }
+    .import-form h3{
+      margin:0;
+      font-size:16px;
+      color:#c9d4e2;
+    }
+    .import-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      padding-top:6px;
+    }
+    .import-status{
+      min-height:18px;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="bar container">
+      <div class="brand">Meal Planner <small>MVP</small></div>
+      <nav>
+        <button class="tab active" data-nav="plan">Plan</button>
+        <button class="tab" data-nav="shopping">Shopping</button>
+        <button class="tab" data-nav="recipes">Recipes</button>
+        <!-- <button class="tab" data-nav="data">Data</button> -->
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="stack" data-screen="plan">
+      <div class="toolbar">
+        <select id="days-count" style="width:auto;min-width:140px">
+          <option value="7">7 days</option>
+          <option value="14">14 days</option>
+          <option value="21">21 days</option>
+          <option value="30" selected>30 days</option>
+        </select>
+        <button class="btn" id="btn-generate">Generate 30‑Day Plan</button>
+        <button class="btn ghost" id="btn-import">Import Recipe URL</button>
+        <button class="btn secondary" id="btn-shopping" disabled>Generate Shopping List</button>
+        <button class="btn ghost" id="btn-clear">Clear</button>
+        <button class="btn" id="btn-lock">Lock Plan</button>
+      </div>
+      <div id="lock-banner" class="banner" style="display:none">Plan is locked. Unlock to generate a new one or clear it.</div>
+      <div class="card">
+        <h2 id="plan-title">30‑Day Plan</h2>
+        <div class="body" id="plan"></div>
+      </div>
+    </section>
+
+    <section class="stack" data-screen="shopping" hidden>
+      <div class="card">
+        <h2>Shopping List</h2>
+        <div class="body">
+          <div id="shopping" class="columns"></div>
+          <div class="toolbar" style="margin-top:12px">
+            <button class="btn ghost" id="btn-clear-checked">Clear checked</button>
+            <button class="btn" id="btn-shop-mode">Shop Mode</button>
+          </div>
+
+          <div class="row" id="extras-row" style="margin-top:8px">
+            <input id="extra-name" type="text" placeholder="Add non-food item (e.g., Bin Bags)" />
+            <select id="extra-cat" style="min-width:160px">
+              <option value="">Auto</option>
+              <option>Household</option>
+              <option>Toiletries</option>
+              <option>Cleaning</option>
+              <option>Pantry</option>
+              <option>Other</option>
+            </select>
+            <button class="btn" id="btn-add-extra">Add</button>
+          </div>
+          <div class="hint" id="extras-hint">Extras are saved and included in the shopping list.</div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="stack" data-screen="recipes" hidden>
+      <div class="card">
+        <h2>Recipes</h2>
+        <div class="body" id="recipes"></div>
+      </div>
+    </section>
+
+    <!--
+    <section class="stack" data-screen="data" hidden>
+      <div class="card">
+        <h2>Data Input</h2>
+        <div class="body">
+          <div class="row">
+            <input id="file" type="file" accept=".json" />
+            <button class="btn" id="btn-load-file">Load JSON File</button>
+            <span class="pill">Supports { meals: [...], staples: [...] }</span>
+          </div>
+          <div class="row">
+            <textarea id="paste" rows="6" placeholder='Paste either an array or an object with { "meals": [], "staples": [] }'></textarea>
+            <button class="btn secondary" id="btn-load-paste">Use Pasted JSON</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    -->
+
+  
+
+    <dialog id="import-dialog" class="import-dialog">
+      <form method="dialog" class="import-form">
+        <h3 style="margin:0 0 8px">Import recipe from URL</h3>
+        <div class="hint" style="margin-bottom:12px">Paste a public recipe URL. We extract only the meal name and ingredient list (no cooking steps). If extraction fails, paste ingredients manually.</div>
+
+        <div class="row" style="align-items:flex-start">
+          <input id="import-url" type="text" placeholder="https://example.com/recipe" />
+          <button class="btn" id="btn-import-fetch" type="button" style="width:auto">Fetch</button>
+        </div>
+
+        <div id="import-status" class="hint" style="min-height:18px"></div>
+
+        <div class="row">
+          <input id="import-title" type="text" placeholder="Meal name" />
+        </div>
+
+        <div class="row">
+          <textarea id="import-ingredients" rows="10" placeholder="One ingredient per line"></textarea>
+        </div>
+
+        <div class="toolbar">
+          <button class="btn secondary" id="btn-import-add" type="button">Add to rotation</button>
+          <button class="btn ghost" value="cancel">Close</button>
+        </div>
+      </form>
+    </dialog>
+
+  </main>
+
+  <footer>Installable PWA • Offline ready • No tracking</footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

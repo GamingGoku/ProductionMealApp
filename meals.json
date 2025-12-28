@@ -1,0 +1,990 @@
+{
+  "meals": [
+    {
+      "name": "Pepper Steak Stir Fry",
+      "mainDish": "Steak",
+      "sideDish": "Rice",
+      "ingredients": [
+        "Steak",
+        "Red Bell Pepper",
+        "Green Bell Pepper",
+        "Garlic",
+        "Ginger",
+        "Soy Sauce",
+        "Cornstarch"
+      ],
+      "method": [
+        "Cook the rice and keep warm.",
+        "Slice the steak thinly and toss with soy sauce and a little cornstarch; rest 5 minutes.",
+        "Stir-fry sliced peppers in a hot pan with a little oil for 2–3 minutes; set aside.",
+        "Sear steak quickly on high heat; add garlic and ginger for 30 seconds.",
+        "Return peppers, add a splash of soy/water, and stir until glossy. Serve over rice."
+      ]
+    },
+    {
+      "name": "Garlic Beef and Broccoli Noodles",
+      "mainDish": "Steak",
+      "sideDish": "Noodles",
+      "ingredients": [
+        "Steak",
+        "Noodles",
+        "Broccoli",
+        "Garlic",
+        "Mushrooms",
+        "Brown Sugar",
+        "Soy Sauce",
+        "Hoisin Sauce",
+        "Sesame Oil",
+        "Ground Ginger",
+        "Chili Flakes",
+        "Pepper",
+        "Cornstarch"
+      ],
+      "method": [
+        "Cook noodles, drain, and set aside.",
+        "Steam or blanch broccoli until bright green; set aside.",
+        "Toss sliced steak with soy, hoisin, sugar, ginger, pepper, and a little cornstarch.",
+        "Stir-fry mushrooms and garlic, then add beef and cook quickly on high heat.",
+        "Add broccoli and noodles, finish with sesame oil and chili flakes, and toss to coat."
+      ]
+    },
+    {
+      "name": "Thai Green Curry",
+      "mainDish": "Chicken",
+      "sideDish": "Rice",
+      "ingredients": [
+        "Chicken Fillets",
+        "Thai Green Curry Paste",
+        "Coconut Milk",
+        "Flour",
+        "Brown Sugar",
+        "Fish Sauce",
+        "Rice"
+      ],
+      "method": [
+        "Cook rice and keep warm.",
+        "Brown chicken pieces in a pot with a little oil.",
+        "Stir in green curry paste for 1 minute.",
+        "Add coconut milk, fish sauce, and brown sugar; simmer gently until chicken is cooked.",
+        "Taste, adjust seasoning, and serve with rice."
+      ]
+    },
+    {
+      "name": "Chicken Tikka Masala",
+      "mainDish": "Chicken",
+      "sideDish": "Rice",
+      "ingredients": [
+        "Chicken Fillets",
+        "Onion",
+        "Red Bell Pepper",
+        "Ginger",
+        "Garlic",
+        "Turmeric",
+        "Ground Coriander",
+        "Paprika",
+        "Garam Masala",
+        "Cumin",
+        "Cayenne Powder",
+        "Tomato Paste",
+        "Tomato Sauce",
+        "Cooking Cream",
+        "Rice"
+      ],
+      "method": [
+        "Cook rice and keep warm.",
+        "Sauté onion and red pepper until softened; add garlic and ginger.",
+        "Stir in spices and tomato paste; cook briefly.",
+        "Add tomato sauce and simmer 10 minutes.",
+        "Add chicken and simmer until cooked; stir in cream and serve."
+      ]
+    },
+    {
+      "name": "Szechuan Beef",
+      "mainDish": "Steak",
+      "sideDish": "Rice",
+      "ingredients": [
+        "Steak",
+        "Soy Sauce",
+        "Brown Sugar",
+        "Sriracha",
+        "Rice Wine Vinegar",
+        "Chinese Five Spice",
+        "Chili Flakes",
+        "Garlic Powder",
+        "Ground Ginger"
+      ],
+      "method": [
+        "Cook rice and keep warm.",
+        "Mix a sauce: soy, brown sugar, sriracha, rice wine vinegar, five spice, chili flakes, garlic powder, ginger.",
+        "Sear thinly sliced steak on high heat.",
+        "Add sauce and simmer 1–2 minutes until it clings to the beef.",
+        "Serve over rice."
+      ]
+    },
+    {
+      "name": "Savoury Mince and Mash",
+      "mainDish": "Mince",
+      "sideDish": "Potatoes",
+      "ingredients": [
+        "Mince",
+        "Onion",
+        "Garlic",
+        "Carrots",
+        "Celery",
+        "Tomato Paste",
+        "Beef Stock",
+        "Worchestershire Sauce",
+        "Mixed Herbs",
+        "Pepper",
+        "Peas",
+        "Potatos"
+      ],
+      "method": [
+        "Boil potatoes and mash with butter, salt, and pepper to taste.",
+        "Sauté onion, garlic, carrots, and celery until softened.",
+        "Add mince and brown well.",
+        "Add beef stock, Worcestershire sauce, herbs, and pepper; simmer 10–15 minutes.",
+        "Stir in peas and thicken with gravy granules. Serve over mash."
+      ]
+    },
+    {
+      "name": "Creamy Chicken and Bacon Pasta",
+      "mainDish": "Chicken/Bacon",
+      "sideDish": "Pasta",
+      "ingredients": [
+        "Bacon",
+        "Chicken Fillets",
+        "Spaghetti",
+        "Butter",
+        "Garlic",
+        "Onion",
+        "Cooking Cream",
+        "Parmesan"
+      ],
+      "method": [
+        "Cook spaghetti; reserve a little pasta water.",
+        "Fry bacon, then add chicken and cook through.",
+        "Add onion and garlic; cook until softened.",
+        "Stir in cream and parmesan; loosen with pasta water if needed.",
+        "Toss pasta through sauce and serve."
+      ]
+    },
+    {
+      "name": "Honey Pepper Pork Stir Fry",
+      "mainDish": "Pork Tenderloin",
+      "sideDish": "Rice",
+      "ingredients": [
+        "Pork Tenderloin",
+        "Cornstarch",
+        "Soy Sauce",
+        "Honey",
+        "Ginger",
+        "Garlic",
+        "Pepper",
+        "Broccoli",
+        "Red Bell Pepper",
+        "Olive Oil",
+        "Rice"
+      ],
+      "method": [
+        "Cook rice and keep warm.",
+        "Toss sliced pork with cornstarch, pepper, and a splash of soy sauce.",
+        "Stir-fry broccoli and peppers; remove.",
+        "Cook pork hot and fast; add garlic and ginger.",
+        "Add honey and soy (plus a splash of water); return veg and toss. Serve over rice."
+      ]
+    },
+    {
+      "name": "Sun Dried Tomato and Chicken Pasta",
+      "mainDish": "Chicken",
+      "sideDish": "Pasta",
+      "ingredients": [
+        "Chicken Fillets",
+        "Garlic",
+        "Sun-Dried Tomatoes",
+        "Paprika",
+        "Cooking Cream",
+        "Mozzarella",
+        "Penne"
+      ],
+      "method": [
+        "Cook penne; reserve some pasta water.",
+        "Sear chicken pieces; set aside.",
+        "Sauté garlic and sun-dried tomatoes briefly.",
+        "Add cream and paprika; simmer 2–3 minutes.",
+        "Return chicken, add pasta, melt in mozzarella, and loosen with pasta water."
+      ]
+    },
+    {
+      "name": "Honey Garlic Chicken",
+      "mainDish": "Chicken",
+      "sideDish": "Rice",
+      "ingredients": [
+        "Chicken Fillets",
+        "Flour",
+        "Salt",
+        "Pepper",
+        "Butter",
+        "Garlic",
+        "Honey",
+        "Chicken Stock",
+        "Rice Vinegar",
+        "Soy Sauce",
+        "Rice"
+      ],
+      "method": [
+        "Cook rice and keep warm.",
+        "Season chicken and lightly coat with flour; pan-fry in butter until golden and cooked.",
+        "Make sauce: garlic, honey, soy, stock, and vinegar; simmer briefly.",
+        "Return chicken to coat in sauce until sticky.",
+        "Serve with rice."
+      ]
+    },
+    {
+      "name": "Creamy Pesto Chicken",
+      "mainDish": "Chicken",
+      "sideDish": "Pasta",
+      "ingredients": [
+        "Chicken Fillets",
+        "Olive Oil",
+        "Italian Seasoning",
+        "Pepper",
+        "Onion",
+        "Garlic",
+        "Sun-Dried Tomatoes",
+        "Red Bell Pepper",
+        "Cooking Cream",
+        "Chicken Stock",
+        "Basil Pesto",
+        "Parmesan",
+        "Rice"
+      ],
+      "method": [
+        "Season and sear chicken in olive oil.",
+        "Add stock and cream; simmer until chicken is cooked and sauce thickens.",
+        "Stir in pesto and parmesan; warm through gently.",
+        "Taste and adjust seasoning.",
+        "Serve (rice or pasta as desired)."
+      ]
+    },
+    {
+      "name": "Chicken Korma",
+      "mainDish": "Chicken",
+      "sideDish": "Rice",
+      "ingredients": [
+        "Chicken Fillets",
+        "Cashews",
+        "Tomato Paste",
+        "Garlic",
+        "Ginger",
+        "Garam Masala",
+        "Chili Flakes",
+        "Paprika",
+        "Turmeric",
+        "Ground Coriander",
+        "Ground Cardamom",
+        "Cumin",
+        "Cinnamon",
+        "Greek Yoghurt",
+        "Rice"
+      ],
+      "method": [
+        "Cook rice and keep warm.",
+        "Blend/crush cashews with yoghurt and a splash of water to make a creamy base.",
+        "Sauté garlic and ginger; stir in tomato paste and spices.",
+        "Add chicken and coat in the spice mix.",
+        "Stir in the cashew-yoghurt mixture and simmer gently until chicken is cooked. Serve with rice."
+      ]
+    },
+    {
+      "name": "Chicken Lazone",
+      "mainDish": "Chicken",
+      "sideDish": "Pasta",
+      "ingredients": [
+        "Chicken Fillets",
+        "Olive Oil",
+        "Butter",
+        "Linguine",
+        "Garlic",
+        "Cooking Cream",
+        "Smoked Paprika",
+        "Garlic Powder",
+        "Onion Powder",
+        "Cayenne Pepper",
+        "Oregano",
+        "Basil"
+      ],
+      "method": [
+        "Cook linguine; reserve pasta water.",
+        "Season chicken with the listed spices and sear in oil/butter; remove.",
+        "Deglaze pan with stock, then add cream and parmesan.",
+        "Return chicken and simmer briefly.",
+        "Toss in linguine, loosening with pasta water if needed."
+      ]
+    },
+    {
+      "name": "Creamy Garlic Parmesan Chicken",
+      "mainDish": "Chicken",
+      "sideDish": "Rice",
+      "ingredients": [
+        "Chicken Fillets",
+        "Garlic Powder",
+        "Olive Oil",
+        "Butter",
+        "Flour",
+        "Garlic",
+        "Chicken Stock",
+        "Cooking Cream",
+        "Parmesan",
+        "Potatoes"
+      ],
+      "method": [
+        "Season chicken and lightly dust with flour; sear in butter/oil until golden; remove.",
+        "Cook fresh garlic briefly, then add stock and simmer.",
+        "Add cream and parmesan and simmer until slightly thickened.",
+        "Return chicken to warm through.",
+        "Serve with potatoes or rice."
+      ]
+    },
+    {
+      "name": "Chicken Fajitas",
+      "mainDish": "Chicken",
+      "sideDish": "Wraps",
+      "ingredients": [
+        "Chicken Fillets",
+        "Wraps",
+        "Hot Chili Powder",
+        "Salt",
+        "Cumin",
+        "Oregano",
+        "Smoked Paprika",
+        "Onion Powder",
+        "Garlic Powder",
+        "Cayenne Pepper",
+        "Pepper"
+      ],
+      "method": [
+        "Slice chicken and toss with the spice mix.",
+        "Stir-fry chicken on high heat until cooked through.",
+        "Warm wraps in a dry pan.",
+        "Fill wraps with chicken (add your preferred toppings).",
+        "Serve immediately."
+      ]
+    },
+    {
+      "name": "Cajun or Plain Steak and Cheese Pockets",
+      "mainDish": "Steak",
+      "sideDish": "Wraps",
+      "ingredients": [
+        "Steak",
+        "Smoked Paprika",
+        "Garlic Powder",
+        "Salt",
+        "Onion Powder",
+        "Pepper",
+        "Cayenne Pepper",
+        "Oregano",
+        "Thyme",
+        "Chili Flakes"
+      ],
+      "method": [
+        "Mix the spice blend (or keep plain if preferred).",
+        "Slice steak thinly and toss with spices and a little oil.",
+        "Sear steak quickly in a hot pan.",
+        "Fill pockets/wraps with steak (and cheese if using).",
+        "Toast/bake until hot and melty."
+      ]
+    },
+    {
+      "name": "Sweet Ginger Chili Chicken",
+      "mainDish": "Chicken",
+      "sideDish": "Rice",
+      "ingredients": [
+        "Chicken Fillets",
+        "Garlic",
+        "Ginger",
+        "Soy Sauce",
+        "Sweet Chili Sauce",
+        "Honey",
+        "Sesame Oil",
+        "Chili Flakes",
+        "Rice"
+      ],
+      "method": [
+        "Cook rice and keep warm.",
+        "Cook chicken in a pan until done.",
+        "Add garlic and ginger for 30 seconds.",
+        "Stir in soy, sweet chili sauce, honey, chili flakes; simmer 1–2 minutes.",
+        "Finish with sesame oil and serve over rice."
+      ]
+    },
+    {
+      "name": "Hoisin Ginger Chicken",
+      "mainDish": "Chicken",
+      "sideDish": "Rice",
+      "ingredients": [
+        "Chicken Fillets",
+        "Soy Sauce",
+        "Rice Wine Vinegar",
+        "Brown Sugar",
+        "Onion",
+        "Red Bell Pepper",
+        "Ginger",
+        "Garlic",
+        "Flour",
+        "Cornstarch",
+        "Ground Ginger",
+        "Garlic Powder",
+        "Cumin",
+        "Pepper",
+        "Hoisin Sauce",
+        "Sweet Chili Sauce",
+        "Tomato Paste",
+        "Apple Cider Vinegar",
+        "Soy Sauce",
+        "Sriracha",
+        "Rice"
+      ],
+      "method": [
+        "Cook rice and keep warm.",
+        "Sauté onion and pepper until softened; add garlic and ginger.",
+        "Add chicken and cook through.",
+        "Stir in hoisin, soy, sweet chili, tomato paste, sugar, sriracha, and vinegars; simmer to thicken.",
+        "Thicken with a little cornstarch slurry if needed and serve with rice."
+      ]
+    },
+    {
+      "name": "Ginger Garlic Pork",
+      "mainDish": "Pork Chops",
+      "sideDish": "Rice",
+      "ingredients": [
+        "Pork Chops",
+        "Soy Sauce",
+        "Hoisin Sauce",
+        "Garlic",
+        "Ginger",
+        "Lemongrass Paste",
+        "Sriracha",
+        "Sesame Oil",
+        "Carrots",
+        "Mushrooms",
+        "Red Bell Pepper",
+        "Onion"
+      ],
+      "method": [
+        "Stir-fry onion, carrots, mushrooms, and pepper until just tender; remove.",
+        "Cook pork until done.",
+        "Add garlic, ginger, lemongrass paste, hoisin, soy, and sriracha; simmer briefly.",
+        "Return veg and toss to coat.",
+        "Finish with sesame oil."
+      ]
+    },
+    {
+      "name": "Chicken Carbonara",
+      "mainDish": "Chicken",
+      "sideDish": "Pasta",
+      "ingredients": [
+        "Chicken Fillets",
+        "Penne",
+        "Olive Oil",
+        "Smoked Paprika",
+        "Cornstarch",
+        "Peas",
+        "Garlic",
+        "Milk",
+        "Chicken Stock",
+        "Parmesan"
+      ],
+      "method": [
+        "Cook penne; reserve pasta water.",
+        "Cook chicken with smoked paprika in a little oil; add garlic briefly.",
+        "Whisk milk and stock; simmer and thicken with cornstarch slurry.",
+        "Stir in peas and parmesan, then toss through pasta.",
+        "Adjust consistency with pasta water and serve."
+      ]
+    },
+    {
+      "name": "Creamy Garlic Chicken and Mash",
+      "mainDish": "Chicken",
+      "sideDish": "Potatoes",
+      "ingredients": [
+        "Chicken Fillets",
+        "Italian Seasoning",
+        "Flour",
+        "Parmesan",
+        "Olive Oil",
+        "Chicken Stock",
+        "Beef Stock",
+        "Worchestershire Sauce",
+        "Onion Powder",
+        "Thyme",
+        "Mustard Powder",
+        "Butter",
+        "Garlic",
+        "Flour",
+        "Cooking Cream",
+        "Potatoes"
+      ],
+      "method": [
+        "Boil potatoes and mash with butter, salt, and pepper to taste.",
+        "Season and sear chicken; remove.",
+        "Make a quick roux with butter and flour, then add cream to form a sauce.",
+        "Add garlic, simmer until thickened, and return chicken to warm through.",
+        "Serve chicken and sauce over mash."
+      ]
+    },
+    {
+      "name": "Slow Cooker Chicken Stew",
+      "mainDish": "Chicken",
+      "sideDish": "Potatoes",
+      "ingredients": [
+        "Chicken Fillets",
+        "Carrots",
+        "Celery",
+        "Onion",
+        "Potatoes",
+        "Garlic",
+        "Chicken Stock",
+        "Tomato Paste",
+        "Thyme",
+        "Bay Leaves",
+        "Flour"
+      ],
+      "method": [
+        "Add chicken, chopped veg, garlic, stock, tomato paste, thyme, and bay leaves to slow cooker.",
+        "Stir in flour (or whisk flour with stock first) to help thicken.",
+        "Cook on LOW 6–8 hours or HIGH 3–4 hours.",
+        "Remove bay leaves and adjust seasoning.",
+        "Serve hot."
+      ]
+    },
+    {
+      "name": "Slow Cooker Beef Stew",
+      "mainDish": "Diced Beef",
+      "sideDish": "Potatoes",
+      "ingredients": [
+        "Diced Beef",
+        "Onion",
+        "Celery",
+        "Carrots",
+        "Bay Leaves",
+        "Thyme",
+        "Tomato Paste",
+        "Worchestershire Sauce",
+        "Beef Stock",
+        "Cornstarch",
+        "Potatoes"
+      ],
+      "method": [
+        "Add beef, veg, stock, tomato paste, Worcestershire sauce, thyme, and bay leaves to slow cooker.",
+        "Cook on LOW 7–9 hours or HIGH 4–5 hours.",
+        "Thicken at the end with a cornstarch slurry if needed.",
+        "Remove bay leaves and adjust seasoning.",
+        "Serve hot."
+      ]
+    },
+    {
+      "name": "Mediterranean Lamb Stew",
+      "mainDish": "Diced Lamb",
+      "sideDish": "Potatoes",
+      "ingredients": [
+        "Diced Lamb",
+        "Salt",
+        "Pepper",
+        "Onion",
+        "Garlic",
+        "Cumin",
+        "Canned Tomatoes",
+        "Vegetable Stock",
+        "Mint",
+        "Parsley"
+      ],
+      "method": [
+        "Season lamb and brown in a pot (optional but recommended).",
+        "Sauté onion and garlic; stir in cumin.",
+        "Add canned tomatoes and vegetable stock; return lamb.",
+        "Simmer gently until tender, adding stock if needed.",
+        "Finish with mint and parsley."
+      ]
+    },
+    {
+      "name": "BBQ Pulled Pork",
+      "mainDish": "Pork Tenderloin",
+      "sideDish": "Bread",
+      "ingredients": [
+        "Pork Tenderloin",
+        "Salt",
+        "Smoked Paprika",
+        "Garlic Powder",
+        "Onion Powder",
+        "Chicken Stock",
+        "BBQ Sauce",
+        "Breadrolls",
+        "Chips"
+      ],
+      "method": [
+        "Mix a simple rub (salt, smoked paprika, garlic powder, onion powder).",
+        "Place pork in slow cooker with stock; cook until shreddable.",
+        "Shred and stir through BBQ sauce; reduce if too wet.",
+        "Serve in breadrolls with chips.",
+        "Optional: add slaw/pickles."
+      ]
+    },
+    {
+      "name": "Creamy Cubed Garlic Pork Bites",
+      "mainDish": "Pork Chops",
+      "sideDish": "Potatoes",
+      "ingredients": [
+        "Pork Chops",
+        "Onion Powder",
+        "Olive Oil",
+        "Butter",
+        "Garlic",
+        "Flour",
+        "Chicken Stock",
+        "Cooking Cream",
+        "Parmesan",
+        "Lemon",
+        "Potatoes"
+      ],
+      "method": [
+        "Cube pork and sear in butter/oil until browned and cooked.",
+        "Add garlic briefly, then stir in flour.",
+        "Add stock to make a sauce, then stir in cream and parmesan.",
+        "Simmer until thickened; finish with lemon.",
+        "Serve with potatoes."
+      ]
+    },
+    {
+      "name": "Rosemary Garlic Pork Chops",
+      "mainDish": "Pork Chops",
+      "sideDish": "Potatoes",
+      "ingredients": [
+        "Pork Chops",
+        "Flour",
+        "Salt",
+        "Garlic Powder",
+        "Pepper",
+        "Olive Oil",
+        "Rosemary",
+        "Garlic",
+        "Chicken Stock",
+        "Butter",
+        "Lemon",
+        "Potatoes"
+      ],
+      "method": [
+        "Season chops (light flour, salt, pepper, garlic powder) and sear until cooked; remove.",
+        "Add butter, garlic, and rosemary; cook briefly.",
+        "Add stock and simmer to reduce.",
+        "Finish with lemon, then return chops to warm through.",
+        "Serve with potatoes."
+      ]
+    },
+    {
+      "name": "Unbeatable Broccoli Pasta",
+      "mainDish": "Bacon Chunk",
+      "sideDish": "Pasta",
+      "ingredients": [
+        "Fusilli",
+        "Broccoli",
+        "Bacon Chunk",
+        "Lemon",
+        "Creme Fraiche"
+      ],
+      "method": [
+        "Cook fusilli; add broccoli for the last 2–3 minutes.",
+        "Fry bacon chunks until crisping.",
+        "Stir crème fraîche into bacon on low heat; add lemon zest/juice to taste.",
+        "Toss pasta and broccoli through, loosening with pasta water if needed.",
+        "Serve hot."
+      ]
+    },
+    {
+      "name": "Philly Pasta",
+      "mainDish": "Bacon Chunk",
+      "sideDish": "Pasta",
+      "ingredients": [
+        "Penne",
+        "Red Bell Pepper",
+        "Yellow Bell Pepper",
+        "Cream Cheese",
+        "Bacon Chunk",
+        "Mushrooms"
+      ],
+      "method": [
+        "Cook penne; reserve pasta water.",
+        "Fry bacon, then cook mushrooms and peppers until softened.",
+        "Stir in cream cheese with a splash of pasta water to make a smooth sauce.",
+        "Toss through pasta and warm through.",
+        "Serve."
+      ]
+    },
+    {
+      "name": "Spaghetti Bolognese",
+      "mainDish": "Mince",
+      "sideDish": "Pasta",
+      "ingredients": [
+        "Mince",
+        "Spaghetti Sauce",
+        "Spaghetti"
+      ],
+      "method": [
+        "Brown mince in a pan.",
+        "Add spaghetti sauce and simmer 10–15 minutes.",
+        "Cook spaghetti and drain.",
+        "Serve sauce over spaghetti.",
+        "Optional: add cheese."
+      ]
+    },
+    {
+      "name": "Roast Chicken and Mash",
+      "mainDish": "Whole Chicken",
+      "sideDish": "Potatoes",
+      "ingredients": [
+        "Whole Chicken",
+        "Potatoes",
+        "Mixed Vegetables"
+      ],
+      "method": [
+        "Roast whole chicken until cooked through; rest 10 minutes.",
+        "Boil potatoes and mash.",
+        "Cook mixed vegetables.",
+        "Carve chicken and serve with mash and veg.",
+        "Add gravy if desired."
+      ]
+    },
+    {
+      "name": "Steak and Mash",
+      "mainDish": "Steak",
+      "sideDish": "Potatoes",
+      "ingredients": [
+        "Steak",
+        "Potatoes",
+        "Gravy",
+        "Mixed Vegetables"
+      ],
+      "method": [
+        "Boil potatoes and mash.",
+        "Cook steak to your preference and rest 5 minutes.",
+        "Heat gravy and cook mixed vegetables.",
+        "Serve steak with mash, gravy, and veg.",
+        "Season to taste."
+      ]
+    },
+    {
+      "name": "Pork Chops and Mash",
+      "mainDish": "Pork Chops",
+      "sideDish": "Potatoes",
+      "ingredients": [
+        "Pork Chops",
+        "Potatoes",
+        "Gravy",
+        "Mixed Vegetables"
+      ],
+      "method": [
+        "Boil potatoes and mash.",
+        "Cook pork chops until done; rest briefly.",
+        "Heat gravy and cook mixed vegetables.",
+        "Serve together.",
+        "Season to taste."
+      ]
+    },
+    {
+      "name": "Lamb Chops and Mash",
+      "mainDish": "Lamb Chops",
+      "sideDish": "Potatoes",
+      "ingredients": [
+        "Lamb Chops",
+        "Potatoes",
+        "Gravy",
+        "Mixed Vegetables"
+      ],
+      "method": [
+        "Boil potatoes and mash.",
+        "Grill or pan-sear lamb chops; rest 5 minutes.",
+        "Heat gravy and cook mixed vegetables.",
+        "Serve together.",
+        "Season to taste."
+      ]
+    },
+    {
+      "name": "Burgers",
+      "mainDish": "Burgers",
+      "sideDish": "Bread",
+      "ingredients": [
+        "Burger Patties",
+        "Burger Buns",
+        "Rashers",
+        "Cheese"
+      ],
+      "method": [
+        "Cook rashers until crisping; set aside.",
+        "Cook burger patties until done; add cheese to melt at the end.",
+        "Toast buns lightly.",
+        "Assemble burgers with rashers and cheese (add toppings as you like).",
+        "Serve hot."
+      ]
+    },
+    {
+      "name": "Fry Up",
+      "mainDish": "Rashers/Sausages",
+      "sideDish": "N/A",
+      "ingredients": [
+        "Rashers",
+        "Sausages",
+        "Eggs",
+        "Mushrooms",
+        "Bread"
+      ],
+      "method": [
+        "Cook sausages first as they take longest.",
+        "Add rashers to the pan and cook to your liking.",
+        "Cook mushrooms in the pan drippings (or a little butter).",
+        "Fry eggs last.",
+        "Toast bread and serve everything hot."
+      ]
+    },
+    {
+      "name": "Pizza",
+      "mainDish": "Pizza",
+      "sideDish": "N/A",
+      "ingredients": [
+        "Pizza"
+      ],
+      "method": [
+        "Heat oven as per package instructions.",
+        "Bake until crust is browned and cheese is bubbling.",
+        "Rest 2 minutes.",
+        "Slice and serve.",
+        "Optional: add sides/salad."
+      ]
+    },
+    {
+      "name": "Lasagne",
+      "mainDish": "Lasagne",
+      "sideDish": "N/A",
+      "ingredients": [
+        "Carrolls Lasagne",
+        "Supervalu Lasagne"
+      ],
+      "method": [
+        "Heat oven as per package instructions.",
+        "Bake until piping hot throughout and browned on top.",
+        "Rest 5–10 minutes before cutting.",
+        "Serve.",
+        "Optional: add salad/garlic bread."
+      ]
+    },
+    {
+      "name": "Chinese Pork Strips and Rice",
+      "mainDish": "Pork Strips",
+      "sideDish": "Rice",
+      "ingredients": [
+        "Pork Strips",
+        "Chinese Seasoning",
+        "Rice"
+      ],
+      "method": [
+        "Cook rice and keep warm.",
+        "Toss pork strips with Chinese seasoning.",
+        "Stir-fry pork on high heat until cooked through.",
+        "Serve over rice.",
+        "Optional: add veg."
+      ]
+    },
+    {
+      "name": "Roast Ham and Veg",
+      "mainDish": "Ham Fillet",
+      "sideDish": "Potatoes",
+      "ingredients": [
+        "Ham Fillet",
+        "Potatoes",
+        "Mixed Vegetables",
+        "Gravy"
+      ],
+      "method": [
+        "Roast ham fillet until hot through and cooked; rest 10 minutes.",
+        "Cook potatoes and mixed vegetables.",
+        "Heat gravy.",
+        "Slice ham and serve with veg and gravy.",
+        "Season to taste."
+      ]
+    },
+    {
+      "name": "Chicken Kievs and Chips",
+      "mainDish": "Chicken Kiev",
+      "sideDish": "Chips",
+      "ingredients": [
+        "Chicken Kievs",
+        "Chips"
+      ],
+      "method": [
+        "Bake chips and chicken kievs per package directions.",
+        "Ensure kievs are hot through.",
+        "Rest briefly and serve with chips.",
+        "Optional: add veg/salad.",
+        "Serve."
+      ]
+    },
+    {
+      "name": "Quiche and Chips",
+      "mainDish": "Quiche",
+      "sideDish": "Chips",
+      "ingredients": [
+        "Quiche",
+        "Chips"
+      ],
+      "method": [
+        "Bake chips per package directions.",
+        "Warm quiche in the oven until hot (or serve cold if preferred).",
+        "Serve together.",
+        "Optional: add salad/veg.",
+        "Serve."
+      ]
+    }
+  ],
+  "staples": [
+    "Shampoo",
+    "Conditioner",
+    "Shower Gel",
+    "Deodorant",
+    "Toothpaste",
+    "Cleaning Supplies",
+    "Toilet Paper",
+    "Kitchen Roll",
+    "Washing Up Liquid",
+    "Toilet Cleaner",
+    "Bin Bags (Small)",
+    "Bin Bags (Large)",
+    "Food Compost Bags",
+    "Dog Food",
+    "Dishwasher Tablets",
+    "Laundry Pods",
+    "Tea Bags",
+    "Mochas",
+    "Sugar",
+    "Hot Dogs",
+    "Spicy Chicken Diggers",
+    "Pepperoni",
+    "Ham",
+    "Cheese",
+    "Mints",
+    "Milk",
+    "Eggs",
+    "Mayonnaise",
+    "Ketchup",
+    "Pringles",
+    "Biscuits",
+    "Chocolate Mix",
+    "Cereal Mix",
+    "Bread",
+    "Water",
+    "Tea Tree Oil Wipes",
+    "Tin Foil",
+    "Baking Paper",
+    "Cling Film",
+    "Salt for Water",
+    "Zip Lock Bags"
+  ]
+}
