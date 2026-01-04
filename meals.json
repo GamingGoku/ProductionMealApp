@@ -105,7 +105,7 @@
         "Ingredients: 3 tbsps oil, 1 medium onion, 1 red bell pepper, 2 tbsps minced ginger, 6 cloves garlic, 2 tsp ground tumeric, 2 tsp ground coriander, 2 tsp paprika, 2 tsp garam masala, 1 tsp ground cumin, 1 tsp cayenne pepper, 0.25 cup tomato paste, 2 cups tomato sauce, 1 cup water, 1 cup cooking cream.",
         "Heat the oil in a large pan to medium heat. Add the onion and peppers. Cook for 5 mins to soften.",
         "Add the ginger, garlic, cumin, turmeric, coriander, paprika, cayenne pepper, and garam masala. Stir and cook for 30secs to bloom the spices.",
-        "Stir in toato paste, tomato sauce and water. Bring to a boil, then reduce heat and simmer for at least 10 mins, longer if you'd like to develop more flavour.",
+        "Stir in tomato paste, tomato sauce and water. Bring to a boil, then reduce heat and simmer for at least 10 mins, longer if you'd like to develop more flavour.",
         "Add the cooking cream and stir to mix through"
       ]
     },
@@ -125,7 +125,7 @@
         "Ground Ginger"
       ],
       "method": [
-        "Igredients: 0.25 cup soy sauce, 2 tbsp brown sugar, 1 tbsp cornstarch (optional), 1 tbsp sriracha sauce, 1 tbsp rice wine vinegar, 0.5 tsp Chinese Five Spice, 0.5 chili flakes, 0.5 tsp garlic powder, 0.5 tsp ground ginger.",
+        "Ingredients: 0.25 cup soy sauce, 2 tbsp brown sugar, 1 tbsp cornstarch (optional), 1 tbsp sriracha sauce, 1 tbsp rice wine vinegar, 0.5 tsp Chinese Five Spice, 0.5 chili flakes, 0.5 tsp garlic powder, 0.5 tsp ground ginger.",
         "Whisk all ingredients together until combined.",
         "Thinly slice the steak and marinate in sauce for at least 30mins.",
         "Add steak and sauce mixture to a pan on medium high heat and cook for 6-7 mins.",
@@ -222,7 +222,7 @@
       ]
     },
     {
-      "name": "Sun Dried Tomato and Chicken Pasta",
+      "name": "Sun-Dried Tomato and Chicken Pasta",
       "mainDish": "Chicken",
       "sideDish": "Pasta",
       "ingredients": [
@@ -239,8 +239,8 @@
         "In a pan, saute garlic and sun-dried tomatoes (drained) in 2 tbsp olive oil for 1 min until the garlic is fragrant.",
         "Remove the sun-dried tomatoes from the skillet, leaving the olive oil.",
         "Add sliced chicken (salted and lightly coated in paprika for colour) and cook on high heat for 1 min on each side. Remove from heat.",
-        "Cook pasta acording to package instructions. Reserve some pasta water. Drain the pasta.",
-        "SLice sun-dried tomatoes into smaller pieces and add the back to the pan with the chicken.",
+        "Cook pasta according to package instructions. Reserve some pasta water. Drain the pasta.",
+        "Slice sun-dried tomatoes into smaller pieces and add the back to the pan with the chicken.",
         "To make creamy pasta sauce, add cooking cream and mozzarella to the pan and bring to a gentle boil.",
         "Immediately reduce and simmer to cook, stirring constantly, until all cheese melts and creamy sauce forms.",
         "Add cooked and drained pasta to the pan with the cream sauce and stir to combine.",
@@ -443,7 +443,7 @@
         "Rice"
       ],
       "method": [
-        "Ingredients: 2 chicken fillets (bitesize chunks), 2 tbsp vegetable oil, 3 garlic cloves (minced), 1 tbsp fresh ginger (minced), 0.25 cup soy sauce, 0.25 cup sweet chili sauce, 2 tbsp honey, 1 tsp sesame oil, chili flakes (to taste).",
+        "Ingredients: 2 chicken fillets (bitesize chunks), 2 tbsp vegetable oil, 3 garlic cloves (minced), 1 tbsp fresh ginger (minced), 0.25 cup soy sauce, 0.25 cup sweet chili sauce, 0.25 cup honey, 1 tsp sesame oil, chili flakes (to taste).",
         "In a bowl, combine soy sauce, sweet chili sauce, honey, sesame oil, red pepper flakes, minced garlic and minced ginger. Mix well.",
         "Season chicken pieces with salt and pepper.",
         "Cook rice and keep warm.",
@@ -551,7 +551,7 @@
         "Stir in the 1 cup peas and minced garlic and sauté for 1 minute or until the garlic releases its flavour.",
         "Pour the pasta water/cornstarch mix, 1 cup milk and 1 cup chicken stock into pan and stir well to combine. The sauce should start to thicken almost immediately.",
         "Once the sauce is thick and coats the back of the spoon, stir in the cooked pasta.",
-        "Sprinkle the pasta with 0.785 cup grated parmesan and 2 tbsp chopped parsley and serve immediately."
+        "Sprinkle the pasta with 0.75 cup grated parmesan and 2 tbsp chopped parsley and serve immediately."
       ]
     },
     {
@@ -799,10 +799,11 @@
         "Mushrooms"
       ],
       "method": [
-        "Cook penne; reserve pasta water.",
+        "Ingredients: 1 medium bacon chunk, 1 red bell pepper, 1 yellow bell pepper, 1 tub cream cheese, 1 tub mushrooms, penne pasta, some milk (quantity varies with cream cheese - just enough to make the cream cheese saucy).",
+        "Cook penne per package instructions.",
         "Fry bacon, then cook mushrooms and peppers until softened.",
-        "Stir in cream cheese with a splash of pasta water to make a smooth sauce.",
-        "Toss through pasta and warm through.",
+        "While the bacon, mushrooms and peppers are cooking, in a separate pot heat the cream cheese with a little milk until it makes a smooth sauce.",
+        "Toss bacon, mushrooms and peppers through pasta, then add the cream cheese sauce and stir through.",
         "Serve."
       ]
     },
@@ -816,6 +817,7 @@
         "Spaghetti"
       ],
       "method": [
+        "Ingredients: 500g mince, 1 jar of preferred spaghetti sauce, spaghetti strings.",
         "Brown mince in a pan.",
         "Add spaghetti sauce and simmer 10–15 minutes.",
         "Cook spaghetti and drain.",
@@ -833,6 +835,7 @@
         "Mixed Vegetables"
       ],
       "method": [
+        "Ingredients: Whole chicken, potatoes, mixed veg of choice.",
         "Roast whole chicken until cooked through; rest 10 minutes.",
         "Boil potatoes and mash.",
         "Cook mixed vegetables.",
@@ -851,6 +854,7 @@
         "Mixed Vegetables"
       ],
       "method": [
+        "Ingredients: Steak, potatoes, mixed veg of choice.",
         "Boil potatoes and mash.",
         "Cook steak to your preference and rest 5 minutes.",
         "Heat gravy and cook mixed vegetables.",
@@ -869,6 +873,7 @@
         "Mixed Vegetables"
       ],
       "method": [
+        "Ingredients: 2-4 pork chops, potatoes, mixed veg of choice.",
         "Boil potatoes and mash.",
         "Cook pork chops until done; rest briefly.",
         "Heat gravy and cook mixed vegetables.",
@@ -887,6 +892,7 @@
         "Mixed Vegetables"
       ],
       "method": [
+        "Ingredients: 2-4 lamb chops, potatoes, mixed veg of choice.",
         "Boil potatoes and mash.",
         "Grill or pan-sear lamb chops; rest 5 minutes.",
         "Heat gravy and cook mixed vegetables.",
@@ -905,6 +911,7 @@
         "Cheese"
       ],
       "method": [
+        "Ingredients: 6lb burger patties, burger buns x 4, streaky bacon, cheese (grated or sliced)",
         "Cook rashers until crisping; set aside.",
         "Cook burger patties until done; add cheese to melt at the end.",
         "Toast buns lightly.",
@@ -924,9 +931,10 @@
         "Bread"
       ],
       "method": [
+        "Ingredients: Rashers, Sausages, eggs. Optional: potatoes, hash browns, mushrooms, onions.",
         "Cook sausages first as they take longest.",
         "Add rashers to the pan and cook to your liking.",
-        "Cook mushrooms in the pan drippings (or a little butter).",
+        "Cook mushrooms and onions separately in the pan drippings (or a little butter).",
         "Fry eggs last.",
         "Toast bread and serve everything hot."
       ]
@@ -936,13 +944,24 @@
       "mainDish": "Pizza",
       "sideDish": "N/A",
       "ingredients": [
-        "Pizza"
+        "Pizza",
+        "Pizza base",
+        "passata sauce",
+        "bbq sauce",
+        "pepperoni",
+        "chicken fillets",
+        "mushrooms",
+        "onions",
+        "mozzarella cheese"
       ],
       "method": [
+        "Ingredients: Box pizza or if making from scratch: pizza base, passata sauce, toppings (pepperoni, chicken, mushrooms, red onions, mozzarella cheese",
         "Heat oven as per package instructions.",
         "Bake until crust is browned and cheese is bubbling.",
         "Rest 2 minutes.",
         "Slice and serve.",
+        "Or if making from scratch, prepare pizza base by adding passata sauce (with seasonings of choice) or BBQ sauce on base, then mozzarella cheese, then toppings of choice.",
+        "Cook until cheese is bubbling and piza base is starting to crisp.",
         "Optional: add sides/salad."
       ]
     },
@@ -972,9 +991,10 @@
         "Rice"
       ],
       "method": [
+        "Ingredients: 1-2 packs pork strips, 2 packs of chinese seasoning, rice.",
         "Cook rice and keep warm.",
-        "Toss pork strips with Chinese seasoning.",
-        "Stir-fry pork on high heat until cooked through.",
+        "Toss raw pork strips with Chinese seasoning.",
+        "Space the seasoned pork strips evenly in an oven tray on a rack to allow excess fat to drip off and the strips to crisp.",
         "Serve over rice.",
         "Optional: add veg."
       ]
@@ -990,6 +1010,7 @@
         "Gravy"
       ],
       "method": [
+        "Ingredients: Ham fillet, potatoes, mixed veg of choice.",
         "Roast ham fillet until hot through and cooked; rest 10 minutes.",
         "Cook potatoes and mixed vegetables.",
         "Heat gravy.",
@@ -1006,6 +1027,7 @@
         "Chips"
       ],
       "method": [
+        "Ingredients: 4 chicken kievs, chips, mixed veg of choice.",
         "Bake chips and chicken kievs per package directions.",
         "Ensure kievs are hot through.",
         "Rest briefly and serve with chips.",
@@ -1022,10 +1044,41 @@
         "Chips"
       ],
       "method": [
+        "Ingredients: Quiche, chips.",
         "Bake chips per package directions.",
         "Warm quiche in the oven until hot (or serve cold if preferred).",
         "Serve together.",
         "Optional: add salad/veg.",
+        "Serve."
+      ]
+    },
+    {
+      "name": "Hash Brown Chicken",
+      "mainDish": "Chicken",
+      "sideDish": "Chips",
+      "ingredients": [
+        "Potatoes",
+        "Parmesan",
+        "Flour",
+        "Salt",
+        "Paprika",
+        "Onion Powder",
+        "Garlic Powder",
+        "Black Pepper",
+        "Eggs",
+        "Chicken fillets",
+        "Chips"
+      ],
+      "method": [
+        "Ingredients: 650g potatoes, 30g parmesan, 0.25 cup plain flour, 1 tsp salt, 0.5 tsp paprika, 0.5 tsp onion powder, 0.5 tsp garlic powder, 0.5 tsp black pepper, 2 eggs (beaten), 2 chicken fillets, 1 cup vegetable oil (for frying).",
+        "Use a box grater to grate the potatoes, then place in a large bowl. Fill with enough cold water to cover the shredded potatoe, then swish around by hand. The water should turn cloudy from the exccess starch.",
+        "A handful at a time, grab the potato, squeeze out the excess water, then place in the centre of a large clean tea towel. Twist it into a ball over the sink and squeeze out as much moisture as possible. You can also press it with kitchen roll after this step to remove even more water.",
+        "Place the dry shredded potato in a large dish and combine with parmesan (Do not add salt).",
+        "Place a bowl with the beaten eggs and another bowl with the flour+seasonings beside the dish with the shredded potato.",
+        "Carefully slice the chicken fillets in half to create 4 even sized cutlets.",
+        "One by one, coat the chicken fillets in the flour, then egg, then shredded potato. You'll need to press the potato into the chicken to create a flat even coating of potato that completely covers the chicken.",
+        "In a deep frying pan, add 1 cup of vegetable oil and turn the heat to medium-high, until a piece of shredded potato rapidly sizzles. Carefully add the fillets and fry both sides for around 3-4 mins until golden and crispy and chicken is cooked through.",
+        "Place on paper towels to remove excess oil.",
         "Serve."
       ]
     }
