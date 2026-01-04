@@ -257,11 +257,11 @@ const CATEGORIES_ORDER=['Produce','Meat & Fish','Dairy & Eggs','Pantry','Househo
 
 // Keyword lists are matched on *normalized whole words/phrases* (no substring matching).
 const CATEGORY={
-  produce:['onion','garlic','pepper','lime','lemon','broccoli','courgette','zucchini','mushroom','spinach','lettuce','cucumber','avocado','potato','carrot','tomato','basil','spring onion','green onion','scallion','pepper','chilli','chili','ginger'],
+  produce:['onion','garlic','pepper','lime','lemon','broccoli','mushroom','spinach','lettuce','cucumber','potato','carrot','tomato','basil','spring onion','green onion','scallion','pepper','chilli','chili','ginger'],
   dairy:['milk','cream','yoghurt','yogurt','butter','cheese','parmesan','mozzarella','egg','eggs'],
   protein:['beef','steak','chicken','pork','ham','bacon','fish','salmon','tuna','prawn','prawns','shrimp','mince','sausages','sausage','burger','hamburger','pepperoni','hot dog','hot dogs'],
   pantry:['soy sauce','vinegar','oil','rice','noodle','flour','salt','sugar','pasta','noodles','lentil','beans','kidney beans','chickpeas','tinned','canned','tin','jar','pesto','mayonnaise','ketchup','mustard','bread','wrap','tortilla','stock','broth','stock cube','stock cubes'],
-  household:['bin bag','bin bags','foil','cling film','batteries','light bulb','kitchen roll','paper towel','bin liners','zip lock','baking paper','tin foil'],
+  household:['bin bag','salt for water','bin bags','foil','cling film','batteries','light bulb','kitchen roll','paper towel','bin liners','zip lock','baking paper','tin foil'],
   toiletries:['shampoo','conditioner','toothpaste','toothbrush','deodorant','shower gel','wipes'],
   cleaning:['bleach','detergent','dishwasher','washing up','washing powder','fabric softener','sponges','spray','cleaner','toilet cleaner']
 };
