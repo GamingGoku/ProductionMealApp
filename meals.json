@@ -946,21 +946,21 @@
       "ingredients": [
         "Pizza",
         "Pizza base",
-        "passata sauce",
-        "bbq sauce",
-        "pepperoni",
-        "chicken fillets",
-        "mushrooms",
-        "onions",
-        "mozzarella cheese"
+        "Tomato sauce",
+        "BBQ sauce",
+        "Pepperoni",
+        "Chicken Fillets",
+        "Mushrooms",
+        "Onions",
+        "Mozzarella cheese"
       ],
       "method": [
-        "Ingredients: Box pizza or if making from scratch: pizza base, passata sauce, toppings (pepperoni, chicken, mushrooms, red onions, mozzarella cheese",
+        "Ingredients: Box pizza or if making from scratch: pizza base, tomato sauce, toppings (pepperoni, chicken, mushrooms, red onions, mozzarella cheese",
         "Heat oven as per package instructions.",
         "Bake until crust is browned and cheese is bubbling.",
         "Rest 2 minutes.",
         "Slice and serve.",
-        "Or if making from scratch, prepare pizza base by adding passata sauce (with seasonings of choice) or BBQ sauce on base, then mozzarella cheese, then toppings of choice.",
+        "Or if making from scratch, prepare pizza base by adding tomato sauce (with seasonings of choice) or BBQ sauce on base, then mozzarella cheese, then toppings of choice.",
         "Cook until cheese is bubbling and piza base is starting to crisp.",
         "Optional: add sides/salad."
       ]
@@ -971,14 +971,16 @@
       "sideDish": "N/A",
       "ingredients": [
         "Carrolls Lasagne",
+        "Coleslaw",
+        "Garlic Bread",
         "Supervalu Lasagne"
       ],
       "method": [
-        "Heat oven as per package instructions.",
+        "Ingredients: Carrolls Lasagne and Supervalu Lasagne",
         "Bake until piping hot throughout and browned on top.",
-        "Rest 5–10 minutes before cutting.",
+        "Rest 5 minutes before cutting.",
         "Serve.",
-        "Optional: add salad/garlic bread."
+        "Optional: add coleslaw/garlic bread."
       ]
     },
     {
