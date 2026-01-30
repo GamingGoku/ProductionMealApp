@@ -36,6 +36,11 @@
     .banner{background:#0f1a23;border:1px solid #223041;color:#cde;padding:10px 12px;border-radius:10px;font-size:13px}
     .columns{display:block}.columns h4{break-inside:avoid;margin:14px 0 8px;color:#b8c6d6}
 
+    /* --- App-shell mode (for Android app) --- */
+    body.app-mode header { display: none !important; }
+    body.app-mode main { padding-top: 10px; }
+    body.app-mode #btn-admin { display: none !important; }
+
     /* --- Shopping list category ribbons (collapsible) --- */
     details.catgroup{
       border:1px solid #1b2430;
@@ -234,7 +239,12 @@ body.shop-mode [data-screen="recipes"]{display:none !important;}
       min-height:18px;
     }
 
-  </style>
+  
+    /* App shell tweaks */
+    #btn-admin{display:none !important;}
+    body.app-shell header{display:none !important;}
+    body.shop-mode header{display:none !important;}
+</style>
 </head>
 <body>
   <header>
@@ -380,6 +390,13 @@ body.shop-mode [data-screen="recipes"]{display:none !important;}
 
   <footer>Installable PWA • Offline ready • No tracking</footer>
 
+  <script>
+    // Detect app-shell mode (when opened from Android app)
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('app') === '1') {
+      document.body.classList.add('app-mode');
+    }
+  </script>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script src="app.js" defer></script>
 </body>
