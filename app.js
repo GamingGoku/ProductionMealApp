@@ -77,6 +77,46 @@ const isShopMode = (()=> {
   }catch{ return window.name==='ShopMode'; }
 })();
 
+let __undoTimer = null;
+let __lastUndo = null; // { key, row, input }
+
+function showUndoBar(message, onUndo){
+  let bar = document.getElementById('undoBar');
+  if(!bar){
+    bar = document.createElement('div');
+    bar.id = 'undoBar';
+    bar.style.position = 'fixed';
+    bar.style.left = '12px';
+    bar.style.right = '12px';
+    bar.style.bottom = '18px';
+    bar.style.padding = '12px 14px';
+    bar.style.borderRadius = '14px';
+    bar.style.background = 'rgba(0,0,0,0.78)';
+    bar.style.color = '#fff';
+    bar.style.zIndex = '999999';
+    bar.style.display = 'none';
+    bar.style.fontSize = '14px';
+    bar.innerHTML = '<span id="undoMsg"></span><span id="undoBtn" style="float:right;font-weight:700;text-decoration:underline;cursor:pointer;">UNDO</span>';
+    document.body.appendChild(bar);
+  }
+  const msg = document.getElementById('undoMsg');
+  if(msg) msg.textContent = message || 'Item removed';
+  bar.style.display = 'block';
+
+  const btn = document.getElementById('undoBtn');
+  if(btn) btn.onclick = ()=>{
+    try{ bar.style.display='none'; }catch(e){}
+    try{ onUndo && onUndo(); }catch(e){}
+  };
+
+  if(__undoTimer) clearTimeout(__undoTimer);
+  __undoTimer = setTimeout(()=>{
+    try{ bar.style.display='none'; }catch(e){}
+    __lastUndo = null;
+  }, 3000);
+}
+
+
 // --- Admin (Netlify Identity) helpers ---
 function safeAtobUrl(b64url){
   // Convert base64url -> base64 for atob
@@ -605,6 +645,23 @@ function buildShoppingList(){
         if(input.checked) checked.add(key); else checked.delete(key);
         saveChecked();
         row.classList.toggle('checked', input.checked);
+
+        // Shop Mode behaviour: checked items disappear with 3s undo
+        if(isShopMode && input.checked){
+          row.style.display = 'none';
+          const undoKey = key;
+          showUndoBar('Item removed', ()=>{
+            row.style.display = '';
+            input.checked = false;
+            checked.delete(undoKey);
+            saveChecked();
+            row.classList.toggle('checked', false);
+            updateMeta();
+          });
+          updateMeta();
+          return;
+        }
+
         updateMeta();
       });
 
@@ -888,8 +945,51 @@ function addImportedMealToRotation(title, ingredientLines){
 
 
 function show(screen){ document.querySelectorAll('[data-screen]').forEach(s=>{ s.hidden = s.getAttribute('data-screen')!==screen; }); }
+function setActiveNav(screen){
+  document.querySelectorAll('.tab[data-nav]').forEach(x=>x.classList.remove('active'));
+  const t=document.querySelector(`.tab[data-nav="${screen}"]`);
+  if(t) t.classList.add('active');
+  show(screen);
+  if(screen==='shopping') buildShoppingList();
+  if(screen==='plan') renderPlan();
+  if(screen==='recipes') renderRecipes();
+}
+
+function applyRouteFromHash(){
+  let tab = 'plan';
+  try{
+    const h = (window.location.hash || '').trim().toLowerCase();
+    if(h === '#shopping') tab = 'shopping';
+    else if(h === '#recipes') tab = 'recipes';
+    else if(h === '#plan') tab = 'plan';
+    else if(h === '#admin') tab = 'admin';
+  }catch(e){}
+  // Only allow known screens that exist
+  const exists = document.querySelector(`[data-screen="${tab}"]`);
+  if(!exists) tab = 'plan';
+  setActiveNav(tab);
+}
+
+window.addEventListener('hashchange', ()=>{ try{ applyRouteFromHash(); }catch(e){} });
+
+function enableAppShellMode(){
+  try{
+    const u = new URL(window.location.href);
+    if(u.searchParams.get('app') === '1') {
+      document.body.classList.add('app-shell');
+      document.body.classList.add('app-mode'); // Also add app-mode for CSS
+    }
+  }catch(e){}
+}
+
+// Call hash routing immediately (before DOM ready) for faster Android tab switching
+if(!isShopMode){
+  try{ applyRouteFromHash(); }catch(e){}
+}
+
 
 document.addEventListener('DOMContentLoaded', ()=>{
+  enableAppShellMode();
   const genBtn = document.getElementById('btn-generate');
   if(genBtn) genBtn.addEventListener('click', generatePlan);
 
@@ -968,10 +1068,15 @@ document.addEventListener('DOMContentLoaded', ()=>{
   document.querySelectorAll('.tab[data-nav]').forEach(t=>t.addEventListener('click', ()=>{
     document.querySelectorAll('.tab[data-nav]').forEach(x=>x.classList.remove('active'));
     t.classList.add('active'); show(t.dataset.nav);
+    try{ window.location.hash = '#' + t.dataset.nav; }catch(e){}
     if(t.dataset.nav==='shopping') buildShoppingList();
     if(t.dataset.nav==='plan') renderPlan();
     if(t.dataset.nav==='recipes') renderRecipes();
   }));
+
+  // Initial route from hash (for native tabs) - call it again after DOM is ready
+  try{ if(!isShopMode) applyRouteFromHash(); }catch(e){}
+
 
   // Recipe import dialog wiring
   const importBtn = document.getElementById('btn-import');
@@ -1298,5 +1403,9 @@ window.addEventListener('storage', (e)=>{
 if('serviceWorker' in navigator){
   window.addEventListener('load',()=>{
     navigator.serviceWorker.register('sw.js').catch(err=>console.error('SW failed',err));
+    // Also ensure routing is applied after full load (for Android app)
+    if(!isShopMode){
+      setTimeout(() => { try{ applyRouteFromHash(); }catch(e){} }, 100);
+    }
   });
 }
