@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ReciDee</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #0b0f14;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto;
+      color: #e7eef6;
+    }
+    .splash-logo {
+      font-size: 64px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: #2dd4bf;
+      margin-bottom: 16px;
+      font-family: serif;
+    }
+    .splash-tagline {
+      font-size: 16px;
+      color: #8b98a5;
+      font-weight: 300;
+    }
+    .loader {
+      margin-top: 32px;
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(45, 212, 191, 0.1);
+      border-top-color: #2dd4bf;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="splash-logo">RECIDEE</div>
+  <div class="splash-tagline">Meal Planning Made Easy</div>
+  <div class="loader"></div>
+  
+  <script>
+    // Redirect to main app after 3 seconds (or adjust duration)
+    setTimeout(() => {
+      window.location.href = 'app.html';
+    }, 3000);
+  </script>
+</body>
+</html>

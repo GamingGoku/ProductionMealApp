@@ -1,0 +1,43 @@
+/* Splash Screen - shows for 2 seconds on page load */
+#splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0b0f14;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 99999;
+  animation: fadeOut 0.5s ease 2.5s forwards;
+}
+
+#splash-screen .logo {
+  font-size: 72px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  color: #2dd4bf;
+  font-family: serif;
+  margin-bottom: 16px;
+  animation: glow 2s ease-in-out infinite;
+}
+
+#splash-screen .tagline {
+  font-size: 18px;
+  color: #8b98a5;
+  font-weight: 300;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+@keyframes glow {
+  0%, 100% { text-shadow: 0 0 20px rgba(45, 212, 191, 0.3); }
+  50% { text-shadow: 0 0 40px rgba(45, 212, 191, 0.6); }
+}
